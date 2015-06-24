@@ -1,0 +1,77 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A D3 map with basic interaction</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="ky-counties.js"></script>
+    
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        background: whitesmoke;
+    }
+    h1, h2 {
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        font-family: "Proxima Nova", Montserrat, sans-serif;
+        font-size: 2em;
+        font-weight: 100;
+        color: #005DAA; /* offical UK Kentucky blue */
+    }
+    h2 {
+        top: 50px;
+        font-size: 1.6em;
+    }
+    .county {
+      stroke: #fff;
+      fill:#005DAA;
+    }
+    .hover {
+        fill: yellow;   
+    }
+</style>
+</head>
+<body>
+    <h1>Kentucky Counties</h1>
+    <h2></h2>
+  <script>
+        
+    var width = window.innerWidth,
+        height = window.innerHeight;
+    
+    var svg = d3.select( "body" )
+          .append( "svg" )
+          .attr( "width", width )
+          .attr( "height", height );
+      
+    var projection = d3.geo.albers()
+        .center([0, 37.8])
+        .rotate([85.8,0])
+        .scale(8000)
+        .translate([width / 2, height / 2]);
+
+    var geoPath = d3.geo.path()
+        .projection(projection);
+        
+    svg.append("g")
+        .selectAll("path")
+        .data(counties.features)
+        .enter()
+        .append("path")
+        .attr( "d", geoPath )
+        .attr("class","county")
+        .on("mouseover", function(d){
+            d3.select("h2").text(d.properties.NAME);
+            d3.select(this).attr("class","county hover");
+        })
+        .on("mouseout", function(d){
+            d3.select("h2").text("");
+            d3.select(this).attr("class","county");
+        });
+ 
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A D3 map using queue.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+    
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        background: whitesmoke;
+    }
+    h1 {
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        font-family: "Proxima Nova", Montserrat, sans-serif;
+        font-size: 2em;
+        font-weight: 100;
+        color: #005DAA; /* offical UK Kentucky blue */
+    }
+    .county {
+      stroke: #fff;
+      fill:#005DAA;
+    } 
+</style>
+</head>
+<body>
+    <h1>Kentucky Counties</h1>
+  <script>
+        
+    var width = window.innerWidth,
+        height = window.innerHeight;
+    
+    var svg = d3.select( "body" )
+          .append( "svg" )
+          .attr( "width", width )
+          .attr( "height", height );
+      
+    var projection = d3.geo.albers()
+        .center([0, 37.8])
+        .rotate([85.8,0])
+        .scale(8000)
+        .translate([width / 2, height / 2]);
+
+    var geoPath = d3.geo.path()
+        .projection(projection);
+    
+    queue()
+        .defer(d3.json, "ky-counties.json")
+        .await(ready);
+      
+    function ready(error, counties){
+        
+         svg.append("g")
+            .selectAll("path")
+            .data(counties.features)
+            .enter()
+            .append("path")
+            .attr( "d", geoPath )
+            .attr("class","county");   
+    }
+
+  </script>
+</body>
+</html>
