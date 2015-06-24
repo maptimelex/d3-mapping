@@ -20,7 +20,7 @@ D3 stands for Data Driven Documents. It's a JavaScript library written by [@mbos
 D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG, and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation.
 </blockquote>
 
-In short, this means that you can take data and represent it within a web browser in [all sorts of fun ways[(https://github.com/mbostock/d3/wiki/Gallery)].
+In short, this means that you can take data and represent it within a web browser in [all sorts of fun ways](https://github.com/mbostock/d3/wiki/Gallery).
  
 D3 is good for web cartographers because, well ... [once we loved Flash](http://freedom.indiemaps.com/). But then we couldn't as much anymore. We needed to learn JavaScript and embrace open web standards as our way forward for making maps on the web. And ... cartographers love to use different map projections. D3.js is [really good at map projections](https://github.com/mbostock/d3/wiki/Geo-Projections).
 
