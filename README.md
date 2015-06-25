@@ -391,7 +391,7 @@ svg.append("g")
 
 Result shows us the spatial distribute of these two well types:
 
-![Oil and gas wells plotted across Kentucky counties](graphics/oil-gass-wells.png)
+![Oil and gas wells plotted across Kentucky counties](graphics/oil-gas-wells.png)
 
 Whew! Okay. Two more maps and it's nearly time for #geoBeers?
 
@@ -522,7 +522,6 @@ function color(){
 
 The color function simply selects all elements with a class of '.county' (i.e., all of our county polygons) and assigns a color value to the fill attribute as before. This example includes the use of a [d3.transtion()](https://github.com/mbostock/d3/wiki/Transitions) to make the transition between maps more pleasant on the eye.
 
-##Conclusions
 
 **Additional tools and resources used in this web mapping process:**
 
