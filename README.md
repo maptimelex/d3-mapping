@@ -1,16 +1,15 @@
 #Introduction to D3.js Web Mapping Through 7 Simple Maps
 
 **[@maptimeLEX](https://twitter.com/maptimelex) 06/24/15**
-**Presentation by [@rgdonohue]**
+
+**Presentation by [@rgdonohue](https://twitter.com/rgdonohue)**
 
 In this @maptimeLex, we (re-)introduce ourselves to the D3.js visualization library and explore its integration within a larger web mapping workflow. Drawing upon Andy Woodruff's (@awoodruff) excellent [@maptimeBoston presentation](http://maptimeboston.github.io/d3-maptime/), we'll explore the library's implementation when used to create seven simple web maps. 
 
-* All the files and data for the examples discussed within this maptime event are hosted at:[maptimelex/d3-mapping](https://github.com/maptimelex/d3-mapping)
+* All the files and data for the examples discussed within this maptime event are hosted at: [maptimelex/d3-mapping](https://github.com/maptimelex/d3-mapping)
+* I've also posted working examples as Gists, which can be viewed here: [rgdonohue’s blocks](http://bl.ocks.org/rgdonohue)
 
-Rather than starting from the ground up and slowly building a working web map with D3 &ndash; like many great resources do &ndash; in this maptime we're going to start with a simple, complete maps and deconstruct them to better understand how they're working.
-
-**Warning:** As of 18:30 on 06/24/15 this is still a draft document, and likely riddled with typos. Enjoy!
-
+Rather than starting from the ground up and slowly building a working web map with D3 &ndash; like many great resources do &ndash; in this maptime we're going to look at simple, complete maps and deconstruct them to better understand how they're working. You're encouraged to clone the repository and run the examples on your own machine, editing the code and tweaking the parameters to see the results.
 
 ##What is D3.js and why is it cool for web cartographers?
 
@@ -24,27 +23,24 @@ In short, this means that you can take data and represent it within a web browse
  
 D3 is good for web cartographers because, well ... [once we loved Flash](http://freedom.indiemaps.com/). But then we couldn't as much anymore. We needed to learn JavaScript and embrace open web standards as our way forward for making maps on the web. And ... cartographers love to use different map projections. D3.js is [really good at map projections](https://github.com/mbostock/d3/wiki/Geo-Projections).
 
-D3.js is open source, meaning you can [see, copy, and modify the raw code](https://github.com/mbostock/d3/blob/master/d3.js) to your liking. You can even solve problems within the codebase or help making it better, and then issue a [pull request](https://twitter.com/mbostock), thereby participating in a thriving community of web mappers and developers who are quickly changing how we build and use geospatial information.
+D3.js is open source, meaning you can [see, copy, and modify the raw code](https://github.com/mbostock/d3/blob/master/d3.js) to your liking. You can even solve problems within the codebase and help make it better, and then issue a [pull request](https://twitter.com/mbostock) for your code to be incorporated into the build, thereby participating in a thriving community of web mappers and developers who are quickly changing how we build and use geospatial information.
 
 ##How do I learn to use D3.js?
 
-**Warning:** It's probably a good idea to spend some time learning JavaScript &ndash; as well as other [modern web technologies](https://developer.mozilla.org/en-US/docs/Web) before tackling D3.js. D3 may not be the best point-of-entry for a newbie web programmer. Playing with a selection library such as [JQuery](https://jquery.com/) wouldn't hurt either. 
+**Warning:** It's probably a good idea to spend some time [learning JavaScript](http://eloquentjavascript.net/) &ndash; as well as other [modern web technologies](https://developer.mozilla.org/en-US/docs/Web) &ndash; before tackling D3.js. D3 may not be the best point-of-entry for a newbie web programmer. Playing with a selection library such as [JQuery](https://jquery.com/) wouldn't hurt either. 
 
 That being said, there is a growing body of excellent tutorials and talks aimed at getting newbies to D3.js over the initially steep learning curve. Among these I recommend:
 
-* [Mapping with D3: A Friendly Introduction](http://maptimeboston.github.io/d3-maptime)
-* [a fun, difficult introduction to d3](http://www.macwright.org/presentations/dcjq/)
-* [Interactive Data Visualization for the Web](http://alignedleft.com/work/d3-book)
-* [Interactive and Multivariate Choropleth Maps with D3](http://www.cartographicperspectives.org/index.php/journal/article/view/cp78-sack-et-al/)
+* [Mapping with D3: A Friendly Introduction](http://maptimeboston.github.io/d3-maptime) (presentation by [@awoodruff](https://twitter.com/awoodruff))
+* [A fun, difficult introduction to d3](http://www.macwright.org/presentations/dcjq/) (presentation by [@tmcw](https://twitter.com/tmcw))
+* [Interactive Data Visualization for the Web](http://alignedleft.com/work/d3-book) (book by Scott Murray)
+* [Interactive and Multivariate Choropleth Maps with D3](http://www.cartographicperspectives.org/index.php/journal/article/view/cp78-sack-et-al/) ([Cartographic Perspectives] article written by [@northlandiguana](https://twitter.com/northlandiguana) and a couple other fellas)
 
 It's also helpful to look at examples:
 
-* [http://bl.ocks.org/mbostock](http://bl.ocks.org/mbostock)
-* [bl.ocksplorer.org](http://bl.ocksplorer.org/)
-
-My friend [@mapsam](https://twitter.com/vancematthews) also has good examples in his 
-
-* [https://github.com/mapsam/d3-geo](https://github.com/mapsam/d3-geo)
+* [http://bl.ocks.org/mbostock](http://bl.ocks.org/mbostock) (Mike Bostock's examples)
+* [bl.ocksplorer.org](http://bl.ocksplorer.org/) (A web tool to help you search for more examples)
+* [@mapsam](https://twitter.com/vancematthews) also has good examples in his [D3.geo Cookbook](https://github.com/mapsam/d3-geo)
 
 You may also wish to consider [learning all the fundamentals skills and concepts needed to build awesome web maps](http://newmapsplus.uky.edu/) within a new online mapping Graduate Certificate and Masters degree I'm helping to build. [Shoot me a message](https://twitter.com/rgdonohue) if you want to know more?
 
