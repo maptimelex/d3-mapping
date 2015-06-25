@@ -11,6 +11,18 @@ In this @maptimeLex, we (re-)introduce ourselves to the D3.js visualization libr
 
 Rather than starting from the ground up and slowly building a working web map with D3 &ndash; like many great resources do &ndash; in this maptime we're going to look at simple, complete maps and deconstruct them to better understand how they're working. You're encouraged to clone the repository and run the examples on your own machine, editing the code and tweaking the parameters to see the results.
 
+### Index
+- [What is D3.js and why is it cool for web cartographers?](#what-is-d3js-and-why-is-it-cool-for-web-cartographers)
+- [How do I learn to use D3.js?](#how-do-i-learn-to-use-d3js)
+- [1. A very simple D3 map](#1-a-very-simple-d3-map)
+- [2. A D3 map with basic interaction](#2-a-d3-map-with-basic-interaction)
+- [3. A D3 map using queue.js](#3-a-d3-map-using-queuejs)
+- [4. A D3 map using topojson](#4-a-d3-map-using-topojson)
+- [5. A D3 map plotting oil and gas well points](#5-a-d3-map-plotting-oil-and-gas-well-points)
+- [6. A D3 county choropleth map of Kentucky oil or gas wells](#6-a-d3-county-choropleth-map-of-kentucky-oil-or-gas-wells)
+- [7. A toggle D3 county map of Kentucky oil and gas wells](#7-a-toggle-d3-county-map-of-kentucky-oil-and-gas-wells)
+
+
 ##What is D3.js and why is it cool for web cartographers?
 
 D3 stands for Data Driven Documents. It's a JavaScript library written by [@mbostock](https://twitter.com/mbostock), with the help of [many other contributors](https://github.com/mbostock/d3/graphs/contributors). As Mike says:
