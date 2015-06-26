@@ -1,0 +1,47 @@
+/*!
+ * Start Bootstrap - The Big Picture HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: none;
+	font-family: 'Montserrat', Arial, sans-serif;
+	color: #ffffff;
+}
+
+.full {
+  /*background: url(http://placehold.it/1920x1080) no-repeat center center fixed; */
+  background-color: #005daa;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+p>a, p>a:hover {
+	color: #cdcdcd;
+}
+
+a.list-group-item {
+	background-color: transparent;
+	border-color: transparent;
+	border-radius: 4px;
+}
+a.list-group-item:hover {
+	background-color: white;
+}
+
+a.list-group-item .list-group-item-heading {
+	color: #ffffff;
+}
+a.list-group-item:hover .list-group-item-heading {
+	color: #005daa;
+}
+
+
+
+	
