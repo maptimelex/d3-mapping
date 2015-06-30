@@ -1,19 +1,19 @@
-#Introduction to D3.js Web Mapping Through 7 Simple Maps
+#Introduction to D3 Web Mapping Through 7 Simple Maps
 
 **[@maptimeLEX](https://twitter.com/maptimelex) 06/24/15**
 
 **Presentation by [@rgdonohue](https://twitter.com/rgdonohue)**
 
-In this @maptimeLex, we (re-)introduce ourselves to the D3.js visualization library and explore its integration within a larger web mapping workflow. Drawing upon Andy Woodruff's (@awoodruff) excellent [@maptimeBoston presentation](http://maptimeboston.github.io/d3-maptime/), we'll explore the library's implementation when used to create seven simple web maps.
+In this @maptimeLex, we (re-)introduce ourselves to the D3 visualization library and explore its integration within a larger web mapping workflow. Drawing upon Andy Woodruff's (@awoodruff) excellent [@maptimeBoston presentation](http://maptimeboston.github.io/d3-maptime/), we'll explore the library's implementation when used to create seven simple web maps.
 
 * All the files and data for the examples discussed within this maptime event are hosted at: [maptimelex/d3-mapping](https://github.com/maptimelex/d3-mapping)
-* I've also posted working examples as Gists, which can be viewed here: [rgdonohue’s blocks](http://bl.ocks.org/rgdonohue)
+* I've also posted working examples as Gists, which can be viewed here: [rgdonohue’s blocks](http://bl.ocks.org/rgdonohue), or you can see the [working examples](http://maptimelex.github.io/d3-mapping/) within @maptimeLex's GitHub repo.
 
 Rather than starting from the ground up and slowly building a working web map with D3 &ndash; like many great resources do &ndash; in this maptime we're going to look at simple, complete maps and deconstruct them to better understand how they're working. You're encouraged to clone the repository and run the examples on your own machine, editing the code and tweaking the parameters to see the results.
 
 ### Index
-- [What is D3.js and why is it cool for web cartographers?](#what-is-d3js-and-why-is-it-cool-for-web-cartographers)
-- [How do I learn to use D3.js?](#how-do-i-learn-to-use-d3js)
+- [What is D3 and why is it cool for web cartographers?](#what-is-d3js-and-why-is-it-cool-for-web-cartographers)
+- [How do I learn to use D3?](#how-do-i-learn-to-use-d3js)
 - [1. A very simple D3 map](#1-a-very-simple-d3-map)
 - [2. A D3 map with basic interaction](#2-a-d3-map-with-basic-interaction)
 - [3. A D3 map using queue.js](#3-a-d3-map-using-queuejs)
@@ -23,30 +23,30 @@ Rather than starting from the ground up and slowly building a working web map wi
 - [7. A toggle D3 county map of Kentucky oil and gas wells](#7-a-toggle-d3-county-map-of-kentucky-oil-and-gas-wells)
 
 
-##What is D3.js and why is it cool for web cartographers?
+##What is D3 and why is it cool for web cartographers?
 
 D3 stands for Data Driven Documents. It's a JavaScript library written by [@mbostock](https://twitter.com/mbostock), with the help of [many other contributors](https://github.com/mbostock/d3/graphs/contributors). As Mike says:
 
 <blockquote>
-D3.js is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG, and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation.
+D3 is a JavaScript library for manipulating documents based on data. D3 helps you bring data to life using HTML, SVG, and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation.
 </blockquote>
 
-In short, this means that you can take data and represent it within a web browser in [all sorts of fun ways](https://github.com/mbostock/d3/wiki/Gallery).
+In short, this means that you can take data and represent it within a web browser in [all sorts of fun and effective ways](https://github.com/mbostock/d3/wiki/Gallery).
 
-D3 is good for web cartographers because, well ... [once we loved Flash](http://freedom.indiemaps.com/). But then we couldn't as much anymore. We needed to learn JavaScript and embrace open web standards as our way forward for making maps on the web. And ... cartographers love to use different map projections. D3.js is [really good at map projections](https://github.com/mbostock/d3/wiki/Geo-Projections).
+D3 is good for web cartographers because, well ... [once we loved Flash](http://freedom.indiemaps.com/). But then we couldn't as much anymore. We needed to learn JavaScript and embrace open web standards as our way forward for making maps on the web. D3 offers us the promise of complete control over the design and interaction of our maps, from dynamically updating data in thematic maps to achieving subtle nuance within its visual hierarchy.  And ... cartographers love to use [different map projections](http://axismaps.github.io/thematic-cartography/articles/projections.html). D3 is [really good at map projections](https://github.com/mbostock/d3/wiki/Geo-Projections).
 
-D3.js is open source, meaning you can [see, copy, and modify the raw code](https://github.com/mbostock/d3/blob/master/d3.js) to your liking. You can even solve problems within the codebase and help make it better, and then issue a [pull request](https://twitter.com/mbostock) for your code to be incorporated into the build, thereby participating in a thriving community of web mappers and developers who are quickly changing how we build and use geospatial information.
+D3 is open source, meaning you can [see, copy, and modify the raw code](https://github.com/mbostock/d3/blob/master/D3) to your liking. You can even help make the code better and  issue a [pull request](https://github.com/mbostock/d3/pulls) for your code to be incorporated into the build. Collaboratively, we're now participating in a thriving community of web mappers and developers who are quickly changing how we build and use geospatial information.
 
-##How do I learn to use D3.js?
+##How do we learn to use D3?
 
-**Warning:** It's probably a good idea to spend some time [learning JavaScript](http://eloquentjavascript.net/) &ndash; as well as other [modern web technologies](https://developer.mozilla.org/en-US/docs/Web) &ndash; before tackling D3.js. D3 may not be the best point-of-entry for a newbie web programmer. Playing with a selection library such as [JQuery](https://jquery.com/) wouldn't hurt either.
+**Warning:** It's probably a good idea to spend some time [learning JavaScript](http://eloquentjavascript.net/) &ndash; as well as other [modern web technologies](https://developer.mozilla.org/en-US/docs/Web) &ndash; before tackling D3. D3 may not be the best point-of-entry for a newbie web programmer. Playing with a selection library such as [JQuery](https://jquery.com/) wouldn't hurt either.
 
-That being said, there is a growing body of excellent tutorials and talks aimed at getting newbies to D3.js over the initially steep learning curve. Among these I recommend:
+That being said, there is a growing body of excellent tutorials and talks aimed at getting newbies to D3 over the initially steep learning curve. Among these I recommend:
 
 * [Mapping with D3: A Friendly Introduction](http://maptimeboston.github.io/d3-maptime) (presentation by [@awoodruff](https://twitter.com/awoodruff))
 * [A fun, difficult introduction to d3](http://www.macwright.org/presentations/dcjq/) (presentation by [@tmcw](https://twitter.com/tmcw))
 * [Interactive Data Visualization for the Web](http://alignedleft.com/work/d3-book) (book by Scott Murray)
-* [Interactive and Multivariate Choropleth Maps with D3](http://www.cartographicperspectives.org/index.php/journal/article/view/cp78-sack-et-al/) ([Cartographic Perspectives] article written by [@northlandiguana](https://twitter.com/northlandiguana) and a couple other fellas)
+* [Interactive and Multivariate Choropleth Maps with D3](http://www.cartographicperspectives.org/index.php/journal/article/view/cp78-sack-et-al/) (an article pushlished in *Cartographic Perspectives*, written by [@northlandiguana](https://twitter.com/northlandiguana) and a couple other fellas)
 
 It's also helpful to look at examples:
 
@@ -54,7 +54,7 @@ It's also helpful to look at examples:
 * [bl.ocksplorer.org](http://bl.ocksplorer.org/) (A web tool to help you search for more examples)
 * [@mapsam](https://twitter.com/vancematthews) also has good examples in his [D3.geo Cookbook](https://github.com/mapsam/d3-geo)
 
-You may also wish to consider [learning all the fundamentals skills and concepts needed to build awesome web maps](http://newmapsplus.uky.edu/) within a new online mapping Graduate Certificate and Masters degree I'm helping to build. [Shoot me a message](https://twitter.com/rgdonohue) if you want to know more?
+You may also wish to consider [learning all the fundamentals skills and concepts needed to build awesome web maps](http://newmapsplus.uky.edu/) within two new online mapping Graduate Certificate and Masters degree programs I'm helping to build. [Shoot me a message](https://twitter.com/rgdonohue) if you want to know more?
 
 Let's get started already!
 
@@ -63,16 +63,16 @@ Let's get started already!
 * View the code and data for this map: [d3-map01-starter](https://github.com/maptimelex/d3-mapping/tree/master/d3-map01-starter)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/4793dab7f993a81cc670" target="_blank">A very simple D3 map</a>
 
-This is a very basic map, really just a basemap consisting of county polygons.  But also it is projected, in this case using an Albers Equal Area project, which is highly suitable for making choropleth maps. Let's run through what this code is doing to produce the map?
+This is a very basic map, really just a basemap consisting of county polygons.  But also it is projected, in this case using an Albers Equal Area projection, which is highly suitable for making choropleth maps. Let's run through what this code is doing to produce the map?
 
-First, we see at the top of the web document we're loading two external resources. The first is the magical d3 JavaScript code, which here in minified and served from a content delivery network (CDN). The second is an external JavaScript file named _ky-counties.js_.
+First, at the top of the web document we're loading two external resources. The first is the magical d3 JavaScript code, which here in minified and served from a content delivery network (CDN). The second is an external JavaScript file named _ky-counties.js_, being hosted locally (i.e., in the same directory as our _index.html_ file).
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="ky-counties.js"></script>
 ```
 
-If we peered inside that _ky-counties.js_ file, we'd see it's really information encoded as [GeoJSON](http://geojson.org/) (our county geometries, stored as a GeoJSON FeatureCollection) that's been assigned to a variable named <code>counties</code>. Also note that the GeoJSON properties include nominal data values such as NAME (the name of each county) and numerical data such a ALAND (the area of each county, which will be useful later for normalizing data for a choropleth map):
+When we peer inside that _ky-counties.js_ file, we'd see it's really information encoded as [GeoJSON](http://geojson.org/) (our county geometries, stored as a GeoJSON FeatureCollection) that's been assigned to a variable named <code>counties</code>. Also note that the GeoJSON properties include nominal data values such as NAME (the name of each county) and numerical data such a ALAND (the area of each county, which will be useful later for normalizing data for a choropleth map):
 
 ```javascript
 var counties = {
@@ -83,7 +83,7 @@ var counties = {
 
 ```
 
-These two files load before the rest of the JavaScript at the bottom of the page executes. Before we turn to that code, we'll note that there is a CSS rule assigning stroke and fill properties to a class named <code>.county_</code>
+These two files load before the rest of the JavaScript at the bottom of the page executes. Before we turn to that code, we'll note that there is a CSS rule assigning stroke and fill properties to a class named <code>.county</code>
 
 ```css
 .county {
@@ -143,7 +143,9 @@ svg.append('g')            // create and append a new SVG 'g' element to the svg
     .attr('class','county');  // give each a class name of 'county'
 ```
 
-Wow, okay. There's a lot to understand there, and it's alright if you're a little confused by what's going on with all those chained method calls. People say learning D3 is difficult, and part of the reason is that it's written very concisely. To be honest, many of us begin making maps by looking at examples, copying the code, and hacking around with it a bit until it fits our use-case. These code examples, however, are pretty standard across D3.js maps. So keep playing with them and it'll come around to make more sense.
+Wow, okay. There's a lot to understand there, and it's alright if you're a little confused by what's going on with all those chained method calls. People say learning D3 is difficult, and part of the reason is that it's written very concisely. 
+
+Many of us begin making maps by looking at examples, copying the code, and hacking around with it a bit until it fits our use-case. These basic code examples, however, are pretty standard across D3 maps. So keep playing with them and it'll come around to make more sense.
 
 Let's push onward for now?
 
@@ -156,7 +158,7 @@ Simply drawing a static map isn't super exciting. Much of the awesomeness of web
 
 Let's say we wish to accomplish two things. We want the user to be able to retrieve the name of a specific county when hovering, and we want the map to provide a visual affordance of which county is being selected.
 
-This map is nearly identical to the previous one. We've added another CSS rule, which will color the unit yellow when applied:
+This map is nearly identical to the previous one. We've added another CSS rule, <code>.hover</code> which will color the unit yellow when applied:
 
 ```css
 .county {
@@ -168,7 +170,7 @@ This map is nearly identical to the previous one. We've added another CSS rule, 
 }
 ```
 
-And we've appended two new methods to our selected group of SVG paths, an [_.on()_ method](https://github.com/mbostock/d3/wiki/Selections#on) which adds a listener to the objects. In this case, we're listening for a 'mouseover' and and 'mouseout' event.
+Within the JavaScript, we've appended two new methods to our selected group of SVG paths, an [_.on()_ method](https://github.com/mbostock/d3/wiki/Selections#on) which adds a listener to the objects. In this case, we're listening for a 'mouseover' and and 'mouseout' event.
 
 ```javascript
 svg.append('g')
@@ -201,7 +203,7 @@ If you're puzzlingly over how the value of NAME is accessed through this code, i
 })
 ```
 
-Let's keep trucking!
+We're not cooking with gas yet. Let's keep trucking!
 
 ##3. A D3 map using queue.js
 
@@ -214,7 +216,7 @@ In the previous two maps we simply loaded our GeoJSON information as an external
 
 While there are various ways to make an AJAX request, a convenient approach is to use [Queue.js](https://github.com/mbostock/queue), a helper library written by Mike Bostock.
 
-We can include a call to load the very small queue.js minified file within in the head of our HTML document, along with the d3.js code:
+We can include a call to load the very small queue.js minified file within in the head of our HTML document, along with the D3 code:
 
 ```html
 <head>
@@ -240,7 +242,7 @@ After we've declared and defined such variables as <code>width</code>, <code>hei
 
 ```javascript
 queue()
-    .defer(d3.json, 'ky-counties.json')
+    .defer(D3on, 'ky-counties.json')
     .await(ready);
 ```
 
@@ -334,7 +336,7 @@ For this map we're first going to load in our CSV data, in addition to our belov
 
 ```javascript
 queue()
-    .defer(d3.json, 'ky-counties.json')
+    .defer(D3on, 'ky-counties.json')
     .defer(d3.csv, 'wells.csv')
     .await(ready);
 
@@ -368,7 +370,7 @@ svg.append('g')
     .attr("r", 1);
 ```
 
-Similar to drawing SVG 'path' elements with D3.js, we apply a sequence of chained methods to select all the 'circle' elements (that don't exist yet), bind the data, and enter and append the new elements.
+Similar to drawing SVG 'path' elements with D3, we apply a sequence of chained methods to select all the 'circle' elements (that don't exist yet), bind the data, and enter and append the new elements.
 
 SVG 'circle' elements require 'cx' and 'cy' attributes to be placed within screen coordinates. However, we need to translate our longitude ('X') and latitude ('Y') values into screen coordinates. How do we do this? We've already been doing it to draw our 'path' elements, using the powerful _d3.projection_ functionality. So, we simply need to pass that function an array of our two coordinates and assign the translated values as the 'circle' element's 'cx' and 'cy' attributes, respectively. We'll also give the circle a radius ('r' attribute) of 1.
 
