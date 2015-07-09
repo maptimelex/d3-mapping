@@ -69,11 +69,8 @@
             .data(wells)
             .enter()
             .append("circle")
-            .attr("cx", function(d){
-                return projection([d["X"], d["Y"] ])[0];
-            })
-            .attr("cy", function(d){
-                return projection([d["X"], d["Y"] ])[1];
+            .attr("transform", function(d) {
+            	return "translate(" + projection([d.X, d.Y]) + ")";
             })
             .attr("r", 1)
             .style("stroke","none")
