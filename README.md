@@ -1,4 +1,4 @@
-#Introduction to D3 Web Mapping Through 7 Simple Maps
+# Introduction to D3 Web Mapping Through 7 Simple Maps
 
 **[@maptimeLEX](https://twitter.com/maptimelex) 06/24/15**
 
@@ -23,7 +23,7 @@ Rather than starting from the ground up and slowly building a working web map wi
 - [7. A toggle D3 county map of Kentucky oil and gas wells](#7-a-toggle-d3-county-map-of-kentucky-oil-and-gas-wells)
 
 
-##What is D3 and why is it cool for web cartographers?
+## What is D3 and why is it cool for web cartographers?
 
 D3 stands for Data Driven Documents. It's a JavaScript library written by [@mbostock](https://twitter.com/mbostock), with the help of [many other contributors](https://github.com/mbostock/d3/graphs/contributors). As Mike says:
 
@@ -37,7 +37,7 @@ D3 is good for web cartographers because, well ... [once we loved Flash](http://
 
 D3 is open source, meaning you can [see, copy, and modify the raw code](https://github.com/mbostock/d3/blob/master/D3) to your liking. You can even help make the code better and  issue a [pull request](https://github.com/mbostock/d3/pulls) for your code to be incorporated into the build. Collaboratively, we're now participating in a thriving community of web mappers and developers who are quickly changing how we build and use geospatial information.
 
-##How do we learn to use D3?
+## How do we learn to use D3?
 
 **Warning:** It's probably a good idea to spend some time [learning JavaScript](http://eloquentjavascript.net/) &ndash; as well as other [modern web technologies](https://developer.mozilla.org/en-US/docs/Web) &ndash; before tackling D3. D3 may not be the best point-of-entry for a newbie web programmer. Playing with a selection library such as [JQuery](https://jquery.com/) wouldn't hurt either.
 
@@ -58,7 +58,7 @@ You may also wish to consider [learning all the fundamentals skills and concepts
 
 Let's get started already!
 
-##1. A very simple D3 map
+## 1. A very simple D3 map
 
 * View the code and data for this map: [d3-map01-starter](https://github.com/maptimelex/d3-mapping/tree/master/d3-map01-starter)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/4793dab7f993a81cc670" target="_blank">A very simple D3 map</a>
@@ -149,7 +149,7 @@ Many of us begin making maps by looking at examples, copying the code, and hacki
 
 Let's push onward for now?
 
-##2. A D3 map with basic interaction
+## 2. A D3 map with basic interaction
 
 * View the code and data for this map: [d3-map02-interaction](https://github.com/maptimelex/d3-mapping/tree/master/d3-map02-interaction)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/f3e885c26f9212161c84" target="_blank">A D3 map with basic interaction</a>
@@ -266,7 +266,7 @@ function ready(error, counties){
 
 Remember, the statements contained within this function's body are not executed until the external GeoJSON file has finished loading. Once that happens, our map is drawn exactly as before.
 
-##4. A D3 map using topojson
+## 4. A D3 map using topojson
 
 * View the code and data for this map: [map04-topojson](https://github.com/maptimelex/d3-mapping/tree/master/d3-map04-topojson)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/530c5bfab3a72a73232a" target="_blank">A D3 map using topojson</a>
@@ -319,7 +319,7 @@ Note that the first argument passed when calling <code>topojson.feature</code> i
 
 The <code>topojson.feature()</code> method converts our TopoJSON back into GeoJSON (whew! GeoJSON I thought you were gone forever!). The final <code>.features</code> is a property that allows us to use the returned GeoJSON's features as our data. Our script then continues as it has and we, once again, have a pretty boring (but highly efficient!) static basemap of Kentucky's counties.
 
-##5. A D3 map plotting oil and gas well points
+## 5. A D3 map plotting oil and gas well points
 
 * View the code and data for this map: [map05-data-point](https://github.com/maptimelex/d3-mapping/tree/master/d3-map05-data-point)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/1c60a230b4021342760e" target="_blank">A D3 map plotting oil and gas well points</a>
@@ -409,7 +409,7 @@ Result shows us the spatial distribute of these two well types:
 
 Whew! Okay. Two more maps and it's nearly time for #geoBeers?
 
-##6. A D3 county choropleth map of Kentucky oil or gas wells
+## 6. A D3 county choropleth map of Kentucky oil or gas wells
 
 * View the code and data for this map: [map06-data-area](https://github.com/maptimelex/d3-mapping/tree/master/d3-map06-data-area)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/bf9c4c7e94da7f794a9e" target="_blank">A D3 county choropleth map of Kentucky oil or gas wells</a>
@@ -489,7 +489,7 @@ var jenks = d3.scale.threshold()
 
 We can then send our calculated wells density value to this function and assign the return value to the 'fill' attribute of each polygon. Wha-la ... in a few terse lines of code we have a choropleth map classified according to Jenks optimal classification breaks.
 
-##7. A toggle D3 county map of Kentucky oil and gas wells
+## 7. A toggle D3 county map of Kentucky oil and gas wells
 
 * View the code and data for this map: [map07-data-area-toggle](https://github.com/maptimelex/d3-mapping/tree/master/d3-map07-data-area-toggle)
 * See a working example here: <a href="http://bl.ocks.org/rgdonohue/6a30b731230f6e242a54" target="_blank">A toggle D3 county map of Kentucky oil and gas wells</a>
