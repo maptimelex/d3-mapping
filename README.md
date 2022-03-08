@@ -1,4 +1,4 @@
-#Introduction to D3 Web Mapping Through 7 Simple Maps
+# Introduction to D3 Web Mapping Through 7 Simple Maps
 
 **[@maptimeLEX](https://twitter.com/maptimelex) 06/24/15**
 
